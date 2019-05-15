@@ -16,7 +16,7 @@ eureka:
 
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/test
+    url: jdbc:mysql://127.0.0.1:3306/jiajiaozaixian_dev
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: jiuaiNI0523
