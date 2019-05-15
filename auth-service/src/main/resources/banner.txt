@@ -12,6 +12,6 @@ $$                                                                      $$
 $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
 
 ========= spring boot : ${spring-boot.version}
-========= application : ${spring.application.name} - ${application.version}
+========= application : ${spring.application.name} - ${spring.application.version}
 ========= github      : https://github.com/0476
 ========= iteye       : https://ailikes.iteye.com/
