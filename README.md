@@ -90,6 +90,7 @@
 ![zipkin](/screenshots/zipkin3.jpg)
 ## RabbitMQ 监控
 Docker 启动访问 http://localhost:15673/ 默认账号 guest，密码 guest（本地 rabbit 管理系统默认端口15672）
+docker run -d --hostname my-rabbit --name rabbit -e RABBITMQ_DEFAULT_USER=guest -e RABBITMQ_DEFAULT_PASS=guest -p 15672:15672 -p 5672:5672 -p 25672:25672 -p 61613:61613 -p 1883:1883 rabbitmq:management
 
 ![rabbit](/screenshots/rabbit.jpg)
 # 接口测试

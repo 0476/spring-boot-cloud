@@ -1,0 +1,5 @@
+cn/zhangxd/auth/config/OAuthConfiguration.class
+cn/zhangxd/auth/controller/UserController.class
+cn/zhangxd/auth/config/ResourceServerConfiguration.class
+cn/zhangxd/auth/config/OAuthConfiguration$AuthenticationManagerConfiguration.class
+cn/zhangxd/auth/AuthApplication.class
