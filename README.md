@@ -96,7 +96,7 @@ docker run -d --hostname my-rabbit --name rabbit -e RABBITMQ_DEFAULT_USER=guest 
 # 接口测试
 1. 获取 Token
 ```
-curl -X POST -vu client:secret http://localhost:8060/uaa/oauth/token -H "Accept: application/json" -d "password=password&username=anil&grant_type=password&scope=read%20write"
+curl -X POST -vu client:secret http://gateway.junxinweike.club:8060/uaa/oauth/token -H "Accept: application/json" -d "password=password&username=anil&grant_type=password&scope=read%20write"
 ```
 返回如下格式数据：
 ```
@@ -110,7 +110,7 @@ curl -X POST -vu client:secret http://localhost:8060/uaa/oauth/token -H "Accept:
 ```
 2. 使用 access token 访问 service a 接口
 ```
-curl -i -H "Authorization: Bearer eac56504-c4f0-4706-b72e-3dc3acdf45e9" http://localhost:8060/svca
+curl -i -H "Authorization: Bearer 4f0d6a71-8da2-4714-bfd1-7c8a06f2ab45" http://gateway.junxinweike.club:8060/svca
 ```
 返回如下数据：
 ```
@@ -119,7 +119,7 @@ svcb-service (172.18.0.2:8070)===>Say Hello
 ```
 3. 使用 access token 访问 service b 接口
 ```
-curl -i -H "Authorization: Bearer eac56504-c4f0-4706-b72e-3dc3acdf45e9" http://localhost:8060/svcb
+curl -i -H "Authorization: Bearer 4f0d6a71-8da2-4714-bfd1-7c8a06f2ab45" http://gateway.junxinweike.club:8060/svcb
 ```
 返回如下数据：
 ```
@@ -127,7 +127,7 @@ svcb-service (172.18.0.2:8070)===>Say Hello
 ```
 4. 使用 refresh token 刷新 token
 ```
-curl -X POST -vu client:secret http://localhost:8060/uaa/oauth/token -H "Accept: application/json" -d "grant_type=refresh_token&refresh_token=da1007dc-683c-4309-965d-370b15aa4aeb"
+curl -X POST -vu client:secret http://gateway.junxinweike.club:8060/uaa/oauth/token -H "Accept: application/json" -d "grant_type=refresh_token&refresh_token=b3484e08-9d84-4c12-a84f-0f0a529f9782"
 ```
 返回更新后的 Token：
 ```
@@ -141,5 +141,9 @@ curl -X POST -vu client:secret http://localhost:8060/uaa/oauth/token -H "Accept:
 ```
 5. 刷新配置
 ```
-curl -X POST -vu user:password http://localhost:8888/bus/refresh
+curl -X POST -vu user:password http://config.junxinweike.club:8888/bus/refresh
+```
+6.获取当前用户信息
+```
+curl -i -H "Authorization: Bearer b3484e08-9d84-4c12-a84f-0f0a529f9782"  http://gateway.junxinweike.club:8060/uaa/current
 ```

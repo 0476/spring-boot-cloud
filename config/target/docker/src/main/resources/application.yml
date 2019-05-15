@@ -1,17 +1,17 @@
 server:
   port: 8888
-
+#注册中心配置
 eureka:
   instance:
-    hostname: registry
+    hostname: registry.junxinweike.club
     prefer-ip-address: true
     metadata-map:
       user.name: ${security.user.name}
       user.password: ${security.user.password}
   client:
     service-url:
-      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry:8761/eureka/
-
+      defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry.junxinweike.club:8761/eureka/
+#配置中心
 spring:
   cloud:
     config:
@@ -21,7 +21,7 @@ spring:
           search-paths: config-repo
   rabbitmq:
     host: mq.junxinweike.club
-
+#安全
 security:
   user:
     name: user
