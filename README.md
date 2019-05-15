@@ -119,7 +119,7 @@ svcb-service (172.18.0.2:8070)===>Say Hello
 ```
 3. 使用 access token 访问 service b 接口
 ```
-curl -i -H "Authorization: Bearer 4f0d6a71-8da2-4714-bfd1-7c8a06f2ab45" http://gateway.junxinweike.club:8060/svcb
+curl -i -H "Authorization: Bearer c2628f9d-e213-4c8c-87b7-abf55fca7185" http://gateway.junxinweike.club:8060/svcb
 ```
 返回如下数据：
 ```
