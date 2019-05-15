@@ -1,5 +1,0 @@
-cn/zhangxd/svca/config/ServiceAConfiguration.class
-cn/zhangxd/svca/controller/ServiceAController.class
-cn/zhangxd/svca/client/ServiceBClient.class
-cn/zhangxd/svca/ServiceAApplication.class
-cn/zhangxd/svca/client/ServiceBClient$ServiceBClientFallback.class
