@@ -15,10 +15,10 @@ eureka:
 spring:
   cloud:
     config:
+      label: dev
       server:
         git:
           uri: https://gitee.com/ailikes/spring-boot-cloud
-          label: dev
           search-paths: config-repo
   rabbitmq:
     host: mq.junxinweike.club
