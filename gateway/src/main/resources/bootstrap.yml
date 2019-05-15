@@ -1,8 +1,10 @@
+#配置中心配置
 spring:
   application:
     name: gateway
   cloud:
     config:
+      label: dev
       uri: http://config.junxinweike.club:8888
       fail-fast: true
       username: user
