@@ -1,6 +1,6 @@
 eureka:
   instance:
-    hostname: registry
+    hostname: registry.junxinweike.club
     prefer-ip-address: true
   client:
     service-url:

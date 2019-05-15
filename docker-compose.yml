@@ -13,18 +13,18 @@ services:
     image: spring-boot-cloud/config
     ports:
       - "8888:8888"
-#  monitor:
-#    image: spring-boot-cloud/monitor
-#    ports:
-#      - "8040:8040"
-#  zipkin:
-#    image: spring-boot-cloud/zipkin
-#    ports:
-#      - "9411:9411"
-#  gateway:
-#    image: spring-boot-cloud/gateway
-#    ports:
-#      - "8060:8060"
+  monitor:
+    image: spring-boot-cloud/monitor
+    ports:
+      - "8040:8040"
+  zipkin:
+    image: spring-boot-cloud/zipkin
+    ports:
+      - "9411:9411"
+  gateway:
+    image: spring-boot-cloud/gateway
+    ports:
+      - "8060:8060"
 #  auth-service:
 #    image: spring-boot-cloud/auth-service
 #    ports:
