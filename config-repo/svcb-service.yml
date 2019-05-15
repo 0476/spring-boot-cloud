@@ -2,13 +2,13 @@ server:
   port: 8070
   
 msg: Hello service B
-
+#注册中心配置
 eureka:
   instance:
     metadata-map:
       user.name: ${security.user.name}
       user.password: ${security.user.password}
-
+#安全配置
 security:
   user:
     name: user
