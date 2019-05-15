@@ -1,7 +1,7 @@
 server:
   port: 8070
   
-msg: Hello is service B
+msg: Hello service B
 
 eureka:
   instance:
