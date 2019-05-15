@@ -1,7 +1,7 @@
 server:
   port: 8070
   
-msg: Hello service B
+msg: This is service B
 #注册中心配置
 eureka:
   instance:
