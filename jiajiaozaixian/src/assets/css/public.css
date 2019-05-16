@@ -1,6 +1,6 @@
 /* CSS Document */
 html{-webkit-text-size-adjust:none;width:100%;height:100%;/*background:url(about:blank); background-attachment:fixed;*/ }
-body{font-size:14px;color:#666; line-height:1.8;  margin:0 auto;font-family:"Microsoft YaHei";width:100%;min-height:100%;background:#fff;min-width:1240px;overflow:auto; text-align:center;}
+body{font-size:14px;color:#666; line-height:1.8;  margin:0!important;font-family:"Microsoft YaHei";width:100%;min-height:100%;background:#fff;min-width:1240px;overflow:auto; text-align:center;}
 a {blr:expression(this.onFocus=this.blur());cursor:pointer; max-width:100%;} 
 /*a.mao{display:block;height:0;line-height:0;overflow:hidden;}*/
 img{border:0;outline:0; vertical-align:middle;max-width:100%;}
