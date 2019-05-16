@@ -155,3 +155,4 @@ fabric.properties
 .idea/
 *.iml
 target/
+node_modules/
