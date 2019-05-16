@@ -65,7 +65,5 @@ export default {
       msg: 'Welcome to Vue Advantage'
     }
   }
-
 }
 </script>
-

@@ -12,7 +12,5 @@ export default {
       msg: 'Welcome to Vue Guide'
     }
   }
-
 }
 </script>
-

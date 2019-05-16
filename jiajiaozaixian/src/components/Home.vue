@@ -14,8 +14,6 @@
         <div class="clear"></div>
       </div>
     </div>
-
-
     <!--师资-->
     <br><br>
     <div class="main">
@@ -151,4 +149,3 @@ export default {
 
 }
 </script>
-
