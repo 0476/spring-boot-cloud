@@ -4,7 +4,7 @@ server:
 management:
   security:
     enabled: false
-
+#熔断器配置
 hystrix:
   command:
     default:
@@ -16,6 +16,10 @@ hystrix:
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
+#安全配置
+security:
+  ignored: /css/**,/js/**,/images/**,/webjars/**,/**/favicon.ico,/static/**,/api/swagger-ui.html,/swagger-ui.html,/v2/api-docs, /configuration/ui,/swagger-resources
+
 #网关配置
 zuul:
   ignoredServices: '*'
@@ -26,7 +30,12 @@ zuul:
       sensitiveHeaders:
     svca-service:
       path: /svca/**
+      stripPrefix: true
       sensitiveHeaders:
     svcb-service:
       path: /svcb/**
+      stripPrefix: true
       sensitiveHeaders:
+#swagger接口配置
+swagger:
+  base-package: com.ailikes.gateway
