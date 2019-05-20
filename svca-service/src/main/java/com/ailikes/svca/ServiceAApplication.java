@@ -1,5 +1,6 @@
 package com.ailikes.svca;
 
+import com.spring4all.swagger.EnableSwagger2Doc;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -13,6 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 @EnableCircuitBreaker
 @EnableOAuth2Client
+@EnableSwagger2Doc
 public class ServiceAApplication {
 
     public static void main(String[] args) {

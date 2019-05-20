@@ -5,7 +5,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry.junxinweike.club:8761/eureka/
-
+#熔断器配置
 hystrix:
   command:
     default:

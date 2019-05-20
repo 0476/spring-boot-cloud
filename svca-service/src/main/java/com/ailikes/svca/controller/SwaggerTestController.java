@@ -1,6 +1,8 @@
 package com.ailikes.svca.controller;
 
 import com.ailikes.svca.client.ServiceBClient;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -13,7 +15,8 @@ import java.security.Principal;
 
 @RefreshScope
 @RestController
-public class ServiceAController {
+@Api("Swagger接口")
+public class SwaggerTestController {
 
     @Value("${name:unknown}")
     private String name;
@@ -23,16 +26,11 @@ public class ServiceAController {
     @Autowired
     private ServiceBClient serviceBClient;
 
+    @ApiOperation("Swagger接口方法")
     @GetMapping(value = "/")
     public String printServiceA() {
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
         return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name:" + name + "<br/>" + serviceBClient.printServiceB();
     }
-
-    @GetMapping(path = "/current")
-    public Principal getCurrentAccount(Principal principal) {
-        return principal;
-    }
-
 
 }

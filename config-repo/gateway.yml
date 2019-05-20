@@ -16,7 +16,7 @@ hystrix:
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
-
+#网关配置
 zuul:
   ignoredServices: '*'
   routes:
