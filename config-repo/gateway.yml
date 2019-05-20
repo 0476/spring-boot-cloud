@@ -19,7 +19,9 @@ ribbon:
 #安全配置
 security:
   ignored: /css/**,/js/**,/images/**,/webjars/**,/**/favicon.ico,/static/**,/api/swagger-ui.html,/swagger-ui.html,/v2/api-docs, /configuration/ui,/swagger-resources
-
+  user:
+    name: user
+    password: password
 #网关配置
 zuul:
   ignoredServices: '*'
