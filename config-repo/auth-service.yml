@@ -19,7 +19,7 @@ security:
 #数据源配置
 spring:
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/jiajiaozaixian_dev
+    url: jdbc:mysql://127.0.0.1:3306/jiajiaozaixian_dev?useSSL=false
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: jiuaiNI0523
