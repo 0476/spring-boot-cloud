@@ -10,7 +10,7 @@ eureka:
       user.password: ${security.user.password}
 #安全配置
 security:
-  ignored: /css/**,/js/**,/images/**,/webjars/**,/**/favicon.ico,/swagger-ui.html,/static/**
+  ignored: /css/**,/js/**,/images/**,/webjars/**,/**/favicon.ico,/swagger-ui.html,/static/**,/api/swagger-ui.html
   user:
     name: user
     password: password
