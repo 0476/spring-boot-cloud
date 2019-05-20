@@ -28,7 +28,7 @@ zuul:
   routes:
     auth-service:
       path: /uaa/**
-      stripPrefix: true
+      stripPrefix: false
       sensitiveHeaders:
     svca-service:
       path: /svca/**
