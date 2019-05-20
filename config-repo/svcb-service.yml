@@ -21,3 +21,6 @@ security:
       accessTokenUri: http://${authserver.hostname}:${authserver.port}${authserver.contextPath}/oauth/token
       grant-type: client_credentials
       scope: server
+#swagger接口配置
+swagger:
+  base-package: com.ailikes.svcb

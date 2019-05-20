@@ -2,6 +2,7 @@
 spring:
   application:
     name: svca-service
+    version: V1.0.0
   cloud:
     config:
       label: dev

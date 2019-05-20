@@ -1,7 +1,7 @@
 server:
   port: 8080
 
-name: zhangxd
+name: ailikes
 #注册中心配置
 eureka:
   instance:

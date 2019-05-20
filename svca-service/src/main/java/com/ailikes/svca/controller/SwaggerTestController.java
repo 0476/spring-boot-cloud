@@ -27,7 +27,7 @@ public class SwaggerTestController {
     private ServiceBClient serviceBClient;
 
     @ApiOperation("Swagger接口方法")
-    @GetMapping(value = "/")
+    @GetMapping(value = "/swagger")
     public String printServiceA() {
         ServiceInstance serviceInstance = discoveryClient.getLocalServiceInstance();
         return serviceInstance.getServiceId() + " (" + serviceInstance.getHost() + ":" + serviceInstance.getPort() + ")" + "===>name:" + name + "<br/>" + serviceBClient.printServiceB();

@@ -110,7 +110,7 @@ curl -X POST -vu client:secret http://gateway.junxinweike.club:8060/uaa/oauth/to
 ```
 2. 使用 access token 访问 service a 接口
 ```
-curl -i -H "Authorization: Bearer 4f0d6a71-8da2-4714-bfd1-7c8a06f2ab45" http://gateway.junxinweike.club:8060/svca
+curl -i -H "Authorization: Bearer 8625d793-8c09-497b-8b71-2c70bdf5c165" http://gateway.junxinweike.club:8060/svca
 ```
 返回如下数据：
 ```
