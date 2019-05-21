@@ -15,7 +15,7 @@ public class ServiceBController {
     @Autowired
     EurekaDiscoveryClient discoveryClient;
 
-    @Value("${msg:unknown}")
+    @Value("${var:msg:unknown}")
     private String msg;
 
     @GetMapping(value = "/")

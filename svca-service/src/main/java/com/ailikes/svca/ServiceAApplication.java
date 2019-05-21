@@ -14,7 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 @SpringBootApplication
 @EnableCircuitBreaker
 @EnableOAuth2Client
-@EnableSwagger2Doc
+
 public class ServiceAApplication {
 
     public static void main(String[] args) {

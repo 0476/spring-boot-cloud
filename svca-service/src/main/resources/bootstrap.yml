@@ -5,7 +5,9 @@ spring:
     version: V1.0.0
   cloud:
     config:
-      label: dev
+      name: svca-service
+      label: dev #对应git的branch
+      profile: dev #对应配置文件的dev、test、pro
       uri: http://config.junxinweike.club:8888
       fail-fast: true
       username: user
