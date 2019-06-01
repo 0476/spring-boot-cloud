@@ -96,7 +96,7 @@ docker run -d --hostname my-rabbit --name rabbit -e RABBITMQ_DEFAULT_USER=guest 
 # 接口测试
 1. 获取 Token
 ```
-curl -X POST -vu client:secret http://gateway.junxinweike.club:8060/uaa/oauth/token -H "Accept: application/json" -d "password=password&username=anil&grant_type=password&scope=read%20write"
+curl -X POST -vu client:secret http://gateway.junxinweike.club:8060/uaa/oauth/token -H "Accept: application/json" -d "password=ls#135135&username=yoyo&grant_type=password&scope=read%20write"
 ```
 返回如下格式数据：
 ```

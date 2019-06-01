@@ -16,19 +16,19 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 @RequestMapping("/")
-public class IndexController {
+public class MainController {
 
     @GetMapping("/index")
     public ModelAndView index(){
         ModelAndView mav = new ModelAndView("index");
-        mav.addObject("title","用户中心");
+        mav.addObject("title","家教在线");
         return mav;
     }
 
-    @GetMapping("/main")
-    public ModelAndView main(){
-        ModelAndView mav = new ModelAndView("index");
-        mav.addObject("title","用户中心");
+    @GetMapping("/login")
+    public ModelAndView login(){
+        ModelAndView mav = new ModelAndView("login");
+        mav.addObject("title","登录");
         return mav;
     }
 }

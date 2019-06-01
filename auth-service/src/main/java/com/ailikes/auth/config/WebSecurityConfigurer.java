@@ -40,7 +40,8 @@ public class WebSecurityConfigurer extends WebSecurityConfigurerAdapter {
         http    // 配置登陆页/login并允许访问
                 .formLogin().permitAll()
                 // 登出页
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/")
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/index")
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/index")
                 // 其余所有请求全部需要鉴权认证
                 .and().authorizeRequests().anyRequest().authenticated()
                 // 由于使用的是JWT，我们这里不需要csrf
