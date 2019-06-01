@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.authentication.configurers.GlobalAuthenticationConfigurerAdapter;
+import org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
@@ -22,7 +22,7 @@ import javax.sql.DataSource;
 public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
-    private AuthenticationManager auth;
+    private AuthenticationManager authenticationManagerBean;
 
     @Autowired
     private DataSource dataSource;
@@ -35,24 +35,18 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
     }
 
     @Override
-    public void configure(AuthorizationServerSecurityConfigurer security)
-            throws Exception {
+    public void configure(AuthorizationServerSecurityConfigurer security)throws Exception {
         security.passwordEncoder(passwordEncoder);
     }
 
     @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints)
-            throws Exception {
-        endpoints
-                .authenticationManager(auth)
-                .tokenStore(tokenStore())
-        ;
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints)throws Exception {
+        endpoints.authenticationManager(authenticationManagerBean).tokenStore(tokenStore());
     }
 
     @Override
     public void configure(ClientDetailsServiceConfigurer clients)
             throws Exception {
-
         clients.jdbc(dataSource)
                 .passwordEncoder(passwordEncoder)
                 .withClient("client")
@@ -84,11 +78,8 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception {
-            auth.jdbcAuthentication().dataSource(dataSource)
-                    .withUser("dave").password("secret").roles("USER")
-                    .and()
-                    .withUser("anil").password("password").roles("ADMIN")
-            ;
+            auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(new BCryptPasswordEncoder());
+//                    .withUser("user").password(new BCryptPasswordEncoder().encode("123456")).roles("USER");
         }
     }
 

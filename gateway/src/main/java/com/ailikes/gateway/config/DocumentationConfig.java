@@ -2,16 +2,16 @@ package com.ailikes.gateway.config;
 
 import org.springframework.cloud.netflix.zuul.filters.Route;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.stereotype.Component;
 import springfox.documentation.swagger.web.SwaggerResource;
 import springfox.documentation.swagger.web.SwaggerResourcesProvider;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 @Primary
+@Configuration
 public class DocumentationConfig implements SwaggerResourcesProvider {
 
     private final RouteLocator routeLocator;
