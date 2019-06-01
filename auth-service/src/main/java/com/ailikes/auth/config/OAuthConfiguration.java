@@ -1,5 +1,7 @@
 package com.ailikes.auth.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,15 +9,13 @@ import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.authentication.configuration.GlobalAuthenticationConfigurerAdapter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.AuthorizationServerConfigurerAdapter;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableAuthorizationServer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerEndpointsConfigurer;
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.token.store.JdbcTokenStore;
-
-import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
@@ -27,7 +27,7 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
     @Autowired
     private DataSource dataSource;
 
-    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    private static MessageDigestPasswordEncoder md5encoder = new MessageDigestPasswordEncoder("MD5");
 
     @Bean
     public JdbcTokenStore tokenStore() {
@@ -36,7 +36,11 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security)throws Exception {
-        security.passwordEncoder(passwordEncoder);
+        security.passwordEncoder(md5encoder)
+                // 开启/oauth/token_key验证端口无权限访问
+                .tokenKeyAccess("permitAll()")
+                // 开启/oauth/check_token验证端口认证权限访问
+                .checkTokenAccess("isAuthenticated()");
     }
 
     @Override
@@ -45,10 +49,9 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
     }
 
     @Override
-    public void configure(ClientDetailsServiceConfigurer clients)
-            throws Exception {
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource)
-                .passwordEncoder(passwordEncoder)
+                .passwordEncoder(md5encoder)
                 .withClient("client")
                 .secret("secret")
                 .authorizedGrantTypes("password", "refresh_token")
@@ -78,8 +81,7 @@ public class OAuthConfiguration extends AuthorizationServerConfigurerAdapter {
 
         @Override
         public void init(AuthenticationManagerBuilder auth) throws Exception {
-            auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(new BCryptPasswordEncoder());
-//                    .withUser("user").password(new BCryptPasswordEncoder().encode("123456")).roles("USER");
+            auth.jdbcAuthentication().dataSource(dataSource).passwordEncoder(md5encoder);
         }
     }
 

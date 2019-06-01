@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>首页</title>
+<link href="css/public.css" type="text/css" rel="stylesheet" media="screen"/>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/ichart.latest.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var data = [
+				         	{
+				         		name : '你的正确率',
+				         		value:['0.98','0.88','0.89','0.70','0.94','0.67'],
+				         		color:'#ff6600'
+				         	},
+				         	{
+				         		name : '平均正确率',
+				         		value:['0.93','0.84','0.85','0.88','0.85','0.77'],
+				         		color:'#aaa'
+				         	}
+				         ];
+				var chart = new iChart.ColumnMulti2D({
+						render : 'canvasDiv',
+						data: data,
+						labels:["一","二","三","四","五","六"],
+						title :'',
+						subtitle : '',
+						footnote : '',						
+						width : 595,
+						height : 350,
+						background_color : '#ffffff',
+						showpercent:true,
+						decimalsnum:0,
+						legend:{
+							enable:true,
+							background_color : null,
+							align:"right",
+							valign:"top",
+							row:1,
+							column:"max",
+							border:0							
+						},
+						border : {
+								enable : false
+							},
+							
+						coordinate:{
+							background_color : '#fff',
+							scale:[{
+								 position:'left',	
+								 start_scale:0,
+								 end_scale:1,
+								 scale_space:0.2,
+								 scale2grid:false,
+								 listeners:{
+									parseText:function(t,x,y){
+										return {text:t*100+"%"}
+									}
+								 }
+							}],
+							
+							width:515,
+							height:200
+						}
+				});
+				chart.draw();
+			});
+			</script>
+<!--[if IE 6]>
+<script src="js/png_ie6.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input, a');
+    </script>
+<![endif]--> 
+</head>
+<body>
+
+<div class="mhead">
+    <div class="main">
+    <a href="" class="left">引能数学 综合测评结果</a>    
+    <div class="mnav">
+    <ul>
+    <li class="cur"><a href="#part1">测试基本信息</a></li>
+    <li><a href="#part2">数学6大领域测试的结果分析</a></li>
+    <li><a href="#part3">测试中所有错题的错误原因分析</a></li>
+    </ul>
+    </div>      
+    <div class="clear"></div>
+    </div>   
+</div>
+<a name="part1"></a>
+<!--startprint1-->
+<div class="math top80" id="print">
+    <h1 class="f24"><p align="center">引能数学 综合测评结果</p></h1>
+    <p align="center">所在校区：大兴一中校区      负责教师：张会莲</p>
+    <br>
+    <h2 class="f21">一、测试基本信息</h2>
+    <div class="mt">
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="center">姓名</td>
+    <td align="center">年级</td>
+    <td align="center">出生年月日</td>
+    <td align="center">测试时间</td>
+    <td align="center"><p >诊断级别</p></td>
+  </tr>
+  <tr>
+    <td align="center"><p >于单</p></td>
+    <td align="center"><p >初一</p></td>
+    <td align="center"><p >2004-11-15</p></td>
+    <td align="center"><p >&#160;2017-11-03</p></td>
+    <td align="center"><p >K</p></td>
+  </tr>
+</table>
+  </div>
+  <a name="part2"></a>
+  <br>
+    <h2 class="f21">二、数学 <b class="f24">6</b> 大领域测试的结果分析</h2>
+    <div class="mt">
+    <table width="100%" border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="14%" align="center" scope="col"><p >领域</p></th>
+    <th width="14%" align="center" scope="col"><p ><span style="color:#f55a29">【1】</span>数与运算</p></th>
+    <th width="10%" align="center" scope="col"><p ><span style="color:#f55a29">【2】</span>图形</p></th>
+    <th width="11%" align="center" scope="col"><p ><span style="color:#f55a29">【3】</span>测量</p></th>
+    <th width="14%" align="center" scope="col"><p ><span style="color:#f55a29">【4】</span>概率与统计</p></th>
+    <th width="14%" align="center" scope="col"><p ><span style="color:#f55a29">【5】</span>字母与式子</p></th>
+    <th width="14%" align="center" scope="col"><p ><span style="color:#f55a29">【6】</span>规律性与函数</p></th>
+    <th width="9%" align="center" scope="col"><p >总计</p></th>
+  </tr>
+  <tr>
+    <th align="center" scope="row"><p style="white-space:nowrap">答题总数</p></th>
+    <td align="center">54</td>
+    <td align="center">25</td>
+    <td align="center">19</td>
+    <td align="center">10</td>
+    <td align="center">34</td>
+    <td align="center">3</td>
+    <td align="center">145</td>
+  </tr>
+  <tr>
+    <th align="center" scope="row"><p >答对数</p></th>
+    <td align="center">50</td>
+    <td align="center">22</td>
+    <td align="center">17</td>
+    <td align="center">7</td>
+    <td align="center">32</td>
+    <td align="center">2</td>
+    <td align="center">130</td>
+  </tr>
+</table>
+
+    </div>
+    <a name="part3"></a>
+    <br>
+    <h3 class="f16">数学 <b class="f21">6</b> 大领域的正确率：</h3>
+    <div class="clear"></div>
+    <div class="mt chartset"><iframe width="100%" height="350" src="chart.html" scrolling="no" frameborder="0"></iframe></div>
+    <br>
+    <h3 class="f16" style="white-space:nowrap;">你的综合正确率:<span style="color:#F00">89.66 %</span>，这一级别知识掌握水平 <span style="color:#F00">不错</span>。 <span style="color:#F00">字母与式子</span> 领域掌握得最好。</h3>
+    <br>
+    <h2 class="f21">三、测试中所有错题的错误原因分析</h2>
+    <div class="mt">
+    <table width="100%" border="1" cellspacing="0" cellpadding="0" class="part3ta">
+  <tr>
+    <th width="7%" align="center" scope="col"><p style="color:#f55a29"><strong>6大 </strong><br><strong>  领域</strong></p></th>
+    <th width="6%" align="center" scope="col"><p ><strong>错题<br>号</strong></p></th>
+    <th width="6%" align="center" scope="col"><strong>错答<br>选项</strong></th>
+    <th width="81%" align="center" scope="col"><strong class="f19">每道题 具体的出错原因 分析</sgrong></th>
+  </tr>
+  <tr>
+    <th rowspan="4" align="center" scope="row"><p style="color:#f55a29"><strong>数与<br>运算</strong></p></th>
+    <td align="center">3</td>
+    <td align="center">6</td>
+    <td><p >读错了数轴</p></td>
+  </tr>
+  <tr>
+    <td align="center">12</td>
+    <td align="center">6</td>
+    <td><p >利用交换律、结合律或分配律解含未知数或恒等数的题时，符号与正确答案相反。</p></td>
+  </tr>
+  <tr>
+    <td align="center">33</td>
+    <td align="center">2</td>
+    <td><p >要找同时满足两个条件的数，只找出了满足一个条件的数。</p></td>
+  </tr>
+  <tr>
+    <td align="center">60</td>
+    <td align="center">2</td>
+    <td><p >混淆了并集和交集。</p></td>
+  </tr>
+  <tr>
+    <th rowspan="3" align="center" scope="row"><p style="color:#f55a29"><strong>图形</strong></p></th>
+    <td align="center">112</td>
+    <td align="center">6</td>
+    <td><p >把两条直线的交点从直线上的点中除掉了</p></td>
+  </tr>
+  <tr>
+    <td align="center">133</td>
+    <td align="center">2</td>
+    <td><p >不知道平面截旋转体后所得的截面形状。</p></td>
+  </tr>
+  <tr>
+    <td align="center">143</td>
+    <td align="center">2</td>
+    <td><p >把原题照抄了。</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2" align="center" scope="row"><p style="color:#f55a29"><strong>测量</strong></p></th>
+    <td align="center">15</td>
+    <td align="center">2</td>
+    <td><p >先计算后，再进行了四舍五入(进一、去尾)。</p></td>
+  </tr>
+  <tr>
+    <td align="center">139</td>
+    <td align="center">4</td>
+    <td><p >不会求棱柱的体积。</p></td>
+  </tr>
+  <tr>
+    <th rowspan="3" align="center" scope="row"><p style="color:#f55a29"><strong>概率<br>与<br>统计</strong></p></th>
+    <td align="center">103</td>
+    <td align="center">3</td>
+    <td><p >没把所有可能发生的情况都计算在内。</p></td>
+  </tr>
+  <tr>
+    <td align="center">106</td>
+    <td align="center">5</td>
+    <td><p >求错了概率。</p></td>
+  </tr>
+   <tr>
+    <td align="center">139</td>
+    <td align="center">4</td>
+    <td><p >不会求棱柱的体积。</p></td>
+  </tr>
+  <tr>
+    <th rowspan="2" align="center" scope="row"><p style="color:#f55a29"><strong>字母<br>与<br>式子</strong></p></th>
+    <td align="center">69</td>
+    <td align="center">6</td>
+    <td><p >没能认出方程或等式。</p></td>
+  </tr>
+  <tr>
+    <td align="center">72</td>
+    <td align="center">5</td>
+    <td><p >不懂等式的乘法性质。</p></td>
+  </tr>
+  <tr>
+    <th align="center" scope="row"><p style="color:#f55a29"><strong>规律<br>性与<br>函数</strong></p></th>
+    <td align="center">66</td>
+    <td align="center">3</td>
+    <td><p >不会列方程。</p></td>
+  </tr>
+</table>
+
+  </div>
+</div>
+<!--endprint1-->
+<br>
+<p align="center" id="#ele"><input type=button name='button_export' title='打印1' onclick=jQuery.print('#print') value="打印" class="mprint"></p>
+<br>
+<div class="mfooter"><br>
+    <div class="main">
+        <p align="center">经营许可证编号： 京ICP备10022571号-3   © 2007-2016 佳教通 版权所有</p>
+        <div class="clear"></div>
+    </div>
+    <br><br>
+</div>
+
+<script src="js/jQuery.print.js"></script>
+    <script type='text/javascript'>
+        //<![CDATA[
+        $(function() {
+            $("#ele").find('input').on('click', function() {
+                //Print ele2 with default options
+                $.print("#print");
+            });
+            
+        });
+		$(function(){
+	$(".nav li").click(function(){
+		$(this).addClass("cur").siblings().removeClass("cur");
+		})
+
+})
+        //]]>
+    </script>
+
+</body>
+</html>

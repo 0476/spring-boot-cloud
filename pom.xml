@@ -19,6 +19,7 @@
 
     <modules>
         <module>gateway</module>
+        <module>web-ui</module>
         <module>auth-service</module>
         <module>svca-service</module>
         <module>svcb-service</module>

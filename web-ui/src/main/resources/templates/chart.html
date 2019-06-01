@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>chart</title>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/ichart.latest.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+				var data = [
+				         	{
+				         		name : '你的正确率',
+				         		value:['0.98','0.88','0.89','0.70','0.94','0.67'],
+				         		color:'#ff6600'
+				         	},
+				         	{
+				         		name : '平均正确率',
+				         		value:['0.93','0.84','0.85','0.88','0.85','0.77'],
+				         		color:'#aaa'
+				         	}
+				         ];
+				var chart = new iChart.ColumnMulti2D({
+						render : 'canvasDiv',
+						data: data,
+						labels:["一","二","三","四","五","六"],
+						width : 595,
+						height : 300,
+						background_color : '#ffffff',
+						showpercent:true,
+						decimalsnum:0,
+						legend:{
+							enable:true,
+							background_color : null,
+							align:"right",
+							valign:"top",
+							row:1,
+							column:"max",
+							border:0,
+							line_height:20,							
+						},
+						border : {
+								enable : false
+							},
+							
+						coordinate:{
+							background_color : '#fff',
+							scale:[{
+								 position:'left',	
+								 start_scale:0,
+								 end_scale:1,
+								 scale_space:0.2,
+								 scale2grid:false,
+								 listeners:{
+									parseText:function(t,x,y){
+										return {text:t*100+"%"}
+									}
+								 }
+							}],
+							
+							width:515,
+							height:200
+						}
+				});
+				chart.draw();
+			});
+			</script>
+<!--[if IE 6]>
+<script src="js/png_ie6.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        DD_belatedPNG.fix('div, ul, img, li, input, a');
+    </script>
+<![endif]--> 
+</head>
+<body>
+
+<!--startprint1-->
+<div id='canvasDiv'></div>
+<!--endprint1-->
+
+</body>
+</html>

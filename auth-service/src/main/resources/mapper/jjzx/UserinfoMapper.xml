@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ailikes.jjzx.mapper.UserinfoMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.ailikes.jjzx.entity.Userinfo">
+        <id column="ID" property="id" />
+        <result column="USERNAME" property="username" />
+        <result column="PASSWORD" property="password" />
+        <result column="EXPERIENCE" property="experience" />
+        <result column="RANKID" property="rankid" />
+        <result column="IMAGE" property="image" />
+        <result column="PROVINCE" property="province" />
+        <result column="EMAIL" property="email" />
+        <result column="SORT" property="sort" />
+        <result column="ISPRIOR" property="isprior" />
+        <result column="TYPE" property="type" />
+        <result column="ROLEID" property="roleid" />
+        <result column="STATUS" property="status" />
+        <result column="REGISTERDATE" property="registerdate" />
+        <result column="LOGINDATE" property="logindate" />
+        <result column="ISHIDDEN" property="ishidden" />
+        <result column="CITY" property="city" />
+        <result column="AREA" property="area" />
+        <result column="AUDITIONTIMES" property="auditiontimes" />
+        <result column="ISHISTORY" property="ishistory" />
+        <result column="agentuserinfoid" property="agentuserinfoid" />
+        <result column="agenttype" property="agenttype" />
+        <result column="agentcanceldatetime" property="agentcanceldatetime" />
+        <result column="comment" property="comment" />
+        <result column="commentscore" property="commentscore" />
+        <result column="gender" property="gender" />
+        <result column="qafirstdatetime" property="qafirstdatetime" />
+        <result column="qaanswerscore" property="qaanswerscore" />
+        <result column="qavotescore" property="qavotescore" />
+        <result column="lastmonthmoney" property="lastmonthmoney" />
+        <result column="isorg" property="isorg" />
+        <result column="errorlogin" property="errorlogin" />
+        <result column="isfriend" property="isfriend" />
+        <result column="online" property="online" />
+        <result column="orignalimage" property="orignalimage" />
+        <result column="agentuserinfoPid" property="agentuserinfoPid" />
+        <result column="txpassword" property="txpassword" />
+        <result column="zxdate" property="zxdate" />
+        <result column="initagentuserinfoid" property="initagentuserinfoid" />
+        <result column="weight" property="weight" />
+        <result column="isfull" property="isfull" />
+        <result column="agentuserinfoname" property="agentuserinfoname" />
+        <result column="agentuserinfopidname" property="agentuserinfopidname" />
+        <result column="updateusername1" property="updateusername1" />
+        <result column="updateusername2" property="updateusername2" />
+        <result column="updategwusername1" property="updategwusername1" />
+        <result column="updategwusername2" property="updategwusername2" />
+        <result column="teachingconsultantid" property="teachingconsultantid" />
+        <result column="teachingconsultantname" property="teachingconsultantname" />
+        <result column="agentgwid" property="agentgwid" />
+        <result column="agentgwname" property="agentgwname" />
+        <result column="agentgwglid" property="agentgwglid" />
+        <result column="agentgwglname" property="agentgwglname" />
+        <result column="logindatemillion" property="logindatemillion" />
+        <result column="sfhmhd" property="sfhmhd" />
+        <result column="dlbz" property="dlbz" />
+        <result column="bjs" property="bjs" />
+        <result column="agentBj" property="agentBj" />
+        <result column="isbtf" property="isbtf" />
+        <result column="ismember" property="ismember" />
+        <result column="iscode" property="iscode" />
+    </resultMap>
+    <!-- 根据用户名查询   -->
+    <select id="getUserByUserName" resultMap="BaseResultMap">
+        select * from t_userinfo where username = #{userName,jdbcType=VARCHAR}
+    </select>
+</mapper>
