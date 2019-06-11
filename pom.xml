@@ -23,6 +23,7 @@
         <module>auth-service</module>
         <module>svca-service</module>
         <module>svcb-service</module>
+        <module>common-base</module>
     </modules>
 
     <properties>
@@ -34,6 +35,33 @@
         <spring-boot-admin.version>1.5.0</spring-boot-admin.version>
         <spring-netflix-eureka.version>2.1.1.RELEASE</spring-netflix-eureka.version>
     </properties>
+
+    <profiles>
+        <profile>
+            <id>dev</id>
+            <activation>
+                <!--默认激活-->
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <spring.profiles.active>dev</spring.profiles.active>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>sit</id>
+            <properties>
+                <spring.profiles.active>sit</spring.profiles.active>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>prd</id>
+            <properties>
+                <spring.profiles.active>prd</spring.profiles.active>
+            </properties>
+        </profile>
+    </profiles>
 
     <dependencies>
         <dependency>

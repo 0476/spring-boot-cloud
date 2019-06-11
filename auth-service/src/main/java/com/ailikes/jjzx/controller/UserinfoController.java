@@ -12,14 +12,14 @@ import java.util.*;
 
 /**
  * <p>
- *  前端控制器
+ *  用户信息：前端控制器
  * </p>
  *
  * @author ailikes
  * @since 2019-06-01
  */
 @RestController
-@RequestMapping("/ailikes.jjzx/userinfo")
+@RequestMapping("/jjzx/userinfo")
 public class UserinfoController {
 
     

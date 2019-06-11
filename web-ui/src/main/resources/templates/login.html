@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <title>登录</title>
-<link href="/static/css/login.css" type="text/css" rel="stylesheet" media="screen"/>
-<script type="text/javascript" src="/public/js/jquery-1.8.3.min.js"></script>
+<link href="${staticPath!''}/css/login.css" type="text/css" rel="stylesheet" media="screen"/>
+<script type="text/javascript" src="${publicPath!''}/js/jquery-1.8.3.min.js"></script>
 
 <!--[if IE 6]>
-<script src="/public/js/png_ie6.js" type="text/javascript"></script>
+<script src="${publicPath!''}/js/png_ie6.js" type="text/javascript"></script>
     <script type="text/javascript">
         DD_belatedPNG.fix('div, ul, img, li, input, a');
     </script>
@@ -19,14 +19,14 @@
 </div>
 <div class="head">
     <div class="main">
-        <a href="" class="left"><img src="/static/images/logo2.jpg"></a>
+        <a href="" class="left"><img src="${staticPath!''}/images/logo2.jpg"></a>
         <a href="" class="right"><span>空中课堂</span></a>
     </div>
 </div>
 <div class="main log">
-    <div class="left"><img src="/static/images/logpic.jpg"></div>
+    <div class="left"><img src="${staticPath!''}/images/logpic.jpg"></div>
     <div class="right">
-    <p><img src="/static/images/logtl.jpg"></p>
+    <p><img src="${staticPath!''}/images/logtl.jpg"></p>
     <div class="logcont">
         <form action="/login" method="post">
             <p class="user"><input name="username" type="text" placeholder="请输入用户名" class="ltxt"></p>
@@ -63,7 +63,7 @@
     </div>
     <br><br>
 </div>
-
+${staticPath!''}
 
 </body>
 </html>

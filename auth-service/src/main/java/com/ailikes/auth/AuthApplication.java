@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableSwagger2Doc
-@ComponentScan({"com.ailikes.auth", "com.ailikes.jjzx"})
+@ComponentScan({"com.ailikes.base", "com.ailikes.auth", "com.ailikes.jjzx"})
 @MapperScan("com.ailikes.jjzx.mapper")
 public class AuthApplication {
 

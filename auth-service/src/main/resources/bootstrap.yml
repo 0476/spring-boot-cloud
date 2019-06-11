@@ -1,18 +1,18 @@
-#配置中心配置
+##配置中心配置
 spring:
   application:
     name: auth-service
     version: V1.0.0
-  cloud:
-    config:
-      label: dev #对应git的branch
-      profile: dev #对应配置文件的dev、test、pro
-      uri: http://config.junxinweike.club:8888
-      fail-fast: true
-      username: user
-      password: ${CONFIG_SERVER_PASSWORD:password}
-      retry:
-        initial-interval: 2000
-        max-interval: 10000
-        multiplier: 2
-        max-attempts: 10
+#  cloud:
+#    config:
+#      label: dev #对应git的branch
+#      profile: dev #对应配置文件的dev、test、pro
+#      uri: http://config.junxinweike.club:8888
+#      fail-fast: true
+#      username: user
+#      password: ${CONFIG_SERVER_PASSWORD:password}
+#      retry:
+#        initial-interval: 2000
+#        max-interval: 10000
+#        multiplier: 2
+#        max-attempts: 10
