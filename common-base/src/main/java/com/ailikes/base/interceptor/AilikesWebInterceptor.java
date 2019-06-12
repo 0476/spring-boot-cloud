@@ -2,7 +2,6 @@ package com.ailikes.base.interceptor;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
@@ -28,6 +27,7 @@ public class AilikesWebInterceptor extends HandlerInterceptorAdapter {
         request.setAttribute("ctx",ctx);
         request.setAttribute("staticPath",ctx + "/static");
         request.setAttribute("publicPath",ctx + "/public");
+        logger.info("当前请求上下文{}",ctx);
         return true;
     }
 

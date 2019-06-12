@@ -25,6 +25,12 @@ public class MainController {
         return mav;
     }
 
+    @GetMapping("/authIndex")
+    public ModelAndView authIndex(){
+        ModelAndView mav = new ModelAndView("index");
+        mav.addObject("title","家教在线");
+        return mav;
+    }
     @GetMapping("/login")
     public ModelAndView login(){
         ModelAndView mav = new ModelAndView("login");

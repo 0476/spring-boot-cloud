@@ -20,10 +20,12 @@
     <modules>
         <module>gateway</module>
         <module>web-ui</module>
-        <module>auth-service</module>
-        <module>svca-service</module>
-        <module>svcb-service</module>
         <module>common-base</module>
+        <module>auth-service</module>
+        <module>business-service</module>
+        <module>cost-service</module>
+        <module>sso-service</module>
+
     </modules>
 
     <properties>
@@ -115,6 +117,11 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-devtools</artifactId>
+                <optional>true</optional>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -124,6 +131,10 @@
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
+                    <configuration>
+                        <!--fork:设置True，否则可能devtools不会起作用-->
+                        <fork>true</fork>
+                    </configuration>
                     <executions>
                         <execution>
                             <goals>
@@ -131,6 +142,14 @@
                             </goals>
                         </execution>
                     </executions>
+                    <dependencies>
+                        <!-- spring热部署 -->
+                        <dependency>
+                            <groupId>org.springframework</groupId>
+                            <artifactId>springloaded</artifactId>
+                            <version>1.2.6.RELEASE</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <groupId>com.spotify</groupId>
