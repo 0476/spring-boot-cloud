@@ -1,5 +1,5 @@
 server:
-  domain: http://127.0.0.1
+  domain: http://auth.ailikes.com
   port: 5000
   servlet:
     context-path: /uc
@@ -24,6 +24,8 @@ security:
       user-authorization-uri: ${auth-server}/oauth/authorize
     resource:
       token-info-uri: ${auth-server}/oauth/check_token
+    sso:
+      login-path: /login
 #注册中心
 eureka:
   instance:

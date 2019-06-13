@@ -4,6 +4,7 @@ import com.ailikes.auth.service.BaseUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.oauth2.config.annotation.configurers.ClientDetailsServiceConfigurer;
@@ -17,7 +18,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableAuthorizationServer
-public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
+public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdapter {
     private static final String ALL_RESOURCE_ID = "*";
     @Autowired
     private BaseUserDetailService baseUserDetailService;
@@ -38,6 +39,8 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public InMemoryTokenStore memoryTokenStore() {
         return new InMemoryTokenStore();
     }
+
+
     @Override
     public void configure(AuthorizationServerSecurityConfigurer security)throws Exception {
         security.passwordEncoder(md5encoder)
@@ -53,6 +56,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
     public void configure(AuthorizationServerEndpointsConfigurer endpoints)throws Exception {
         endpoints.authenticationManager(authenticationManagerBean)
                  .tokenStore(memoryTokenStore())
+                 .allowedTokenEndpointRequestMethods(HttpMethod.GET, HttpMethod.POST,HttpMethod.OPTIONS)  //支持GET  POST  请求获取token
                  .userDetailsService(baseUserDetailService);;
     }
 
@@ -61,24 +65,25 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
         clients.jdbc(dataSource)
                 .passwordEncoder(md5encoder)
 //        clients.inMemory()
-//                .withClient("sso-service")
-//                .secret("password")
-//                .resourceIds(ALL_RESOURCE_ID)
-//                .accessTokenValiditySeconds(3600) // 1 hour
-//                .refreshTokenValiditySeconds(2592000) // 30 days
-//                .autoApprove(true)
-//                .redirectUris("http://sso.ailikes.com:8085/sso/login")
-//                .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token", "password", "implicit")
-//                .scopes("server")
-//                .and()
 //                .withClient("auth-service")
 //                .secret("password")
 //                .resourceIds(ALL_RESOURCE_ID)
 //                .accessTokenValiditySeconds(3600) // 1 hour
 //                .refreshTokenValiditySeconds(2592000) // 30 days
 //                .autoApprove(true)
-//                .redirectUris("http://auth.ailikes.com:5000/uc/authIndex")
-//                .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token", "password", "implicit")
+//                .redirectUris("http://auth.ailikes.com:5000/uc/callback")
+//                .authorizedGrantTypes("authorization_code", "client_credentials", "refresh_token",  "implicit")
+//                .scopes("server")
+//                .and()
+//
+//                .withClient("sso-service")
+//                .secret("password")
+//                .resourceIds(ALL_RESOURCE_ID)
+//                .accessTokenValiditySeconds(3600) // 1 hour
+//                .refreshTokenValiditySeconds(2592000) // 30 days
+//                .autoApprove(true)
+//                .redirectUris("http://sso.ailikes.com:8085/sso/callback")
+//                .authorizedGrantTypes("authorization_code", "refresh_token")
 //                .scopes("server")
 //                .and()
 //                .build();

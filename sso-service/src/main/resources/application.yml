@@ -1,5 +1,4 @@
 auth-server: http://auth.ailikes.com:5000/uc # 认证服务器地址
-
 server:
   domain: http://sso.ailikes.com
   session:
@@ -18,6 +17,8 @@ security:
   basic:
     enabled: false
   oauth2:
+    sso:
+      loginPath: /login   # 登录路径
     client:
       client-id: sso-service
       client-secret: password
@@ -26,7 +27,6 @@ security:
       user-authorization-uri: ${auth-server}/oauth/authorize
     resource:
       user-info-uri: ${auth-server}/user
-      check-token-access: ${auth-server}/oauth/check_token
 #注册中心
 eureka:
   instance:

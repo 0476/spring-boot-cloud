@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class MainController {
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
+
     @GetMapping
     public ModelAndView main(){
         ModelAndView mav = new ModelAndView("index");

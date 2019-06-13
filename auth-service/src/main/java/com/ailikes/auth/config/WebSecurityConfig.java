@@ -6,6 +6,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -18,7 +19,7 @@ import org.springframework.security.crypto.password.MessageDigestPasswordEncoder
 
 @Configuration
 @EnableWebSecurity
-@Order(2)
+@Order(Ordered.HIGHEST_PRECEDENCE)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     private static Logger logger = LoggerFactory.getLogger(WebSecurityConfig.class);
@@ -37,18 +38,21 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
         //不拦截静态文件
-        web.ignoring().antMatchers("/static/**", "/public/**","/index");
+        web.ignoring().antMatchers("/favicon.ico","/static/**", "/public/**","/","/index");
     }
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().formLogin().permitAll()
-                .and().formLogin().loginPage("/login").defaultSuccessUrl("/index")
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/index")
-                .and().requestMatchers().antMatchers("/oauth/**", "/login/**", "/logout/**")
-                .and().authorizeRequests().antMatchers("/oauth/*").authenticated()
-                .and().formLogin().permitAll();
+        http    .csrf().disable()
+                .authorizeRequests().anyRequest().authenticated()//所有请求必须登陆后访问
+                // basic验证
+                .and().httpBasic()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/index").failureUrl("/login?error").permitAll()
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/index").permitAll();
+                //.and().authorizeRequests().antMatchers("/oauth/*").authenticated()
+//                .and().addFilterBefore(oauth2ClientAuthenticationProcessingFilter, BasicAuthenticationFilter.class);
     }
+
     /**
      * 用户验证
      * @param auth
