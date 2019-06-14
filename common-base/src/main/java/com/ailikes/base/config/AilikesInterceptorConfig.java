@@ -25,4 +25,5 @@ public class AilikesInterceptorConfig implements WebMvcConfigurer {
         //通用拦截器
         registry.addInterceptor(ailikesWebInterceptor).addPathPatterns("/**").excludePathPatterns("/upload/**","/static/**");
     }
+
 }

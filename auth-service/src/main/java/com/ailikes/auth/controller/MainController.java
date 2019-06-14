@@ -38,10 +38,5 @@ public class MainController {
         mav.addObject("title","家教在线");
         return mav;
     }
-    @GetMapping("/login")
-    public ModelAndView login(){
-        ModelAndView mav = new ModelAndView("login");
-        mav.addObject("title","登录");
-        return mav;
-    }
+
 }

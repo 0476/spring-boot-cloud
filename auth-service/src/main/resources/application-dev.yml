@@ -44,6 +44,8 @@ eureka:
       defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry.junxinweike.club:8761/eureka/
   #数据源配置
 spring:
+  messages:
+    basename: static/i18n/messages #相对路径 开头请勿添加斜杠
   rabbitmq:
     host: mq.junxinweike.club
     sleuth:
