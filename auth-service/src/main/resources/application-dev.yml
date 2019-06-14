@@ -14,7 +14,9 @@ management:
     servlet:
       context-path: /mgmt
 auth-server: http://auth.ailikes.com:5000/uc
+#安全配置
 security:
+  ignored: /css/**,/js/**,/images/**,/webjars/**,/**/favicon.ico,/static/**,/public/**,/api/swagger-ui.html,/swagger-ui.html,/v2/api-docs, /configuration/ui,/swagger-resources
   basic:
     enabled: false
 #  oauth2:
@@ -40,10 +42,7 @@ eureka:
   client:
     service-url:
       defaultZone: http://user:${REGISTRY_SERVER_PASSWORD:password}@registry.junxinweike.club:8761/eureka/
-  #安全配置
-  security:
-    ignored: /css/**,/js/**,/images/**,/webjars/**,/**/favicon.ico,/static/**,/public/**,/api/swagger-ui.html,/swagger-ui.html,/v2/api-docs, /configuration/ui,/swagger-resources
-#数据源配置
+  #数据源配置
 spring:
   rabbitmq:
     host: mq.junxinweike.club

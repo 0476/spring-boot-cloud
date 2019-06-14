@@ -18,6 +18,13 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/")
 public class MainController {
 
+    @GetMapping
+    public ModelAndView home(){
+        ModelAndView mav = new ModelAndView("index");
+        mav.addObject("title","家教在线");
+        return mav;
+    }
+
     @GetMapping("/index")
     public ModelAndView index(){
         ModelAndView mav = new ModelAndView("index");
