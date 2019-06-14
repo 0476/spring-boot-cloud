@@ -43,14 +43,24 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-        http    .csrf().disable()
+        http    .httpBasic().disable().csrf().disable()
                 .authorizeRequests().anyRequest().authenticated()//所有请求必须登陆后访问
-                // basic验证
-                .and().httpBasic()
+//                // basic验证
+//                .and().httpBasic()
                 .and().formLogin().loginPage("/login").defaultSuccessUrl("/index").failureUrl("/login?error").permitAll()
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/index").permitAll();
+                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/index").permitAll()
+                .and().formLogin().permitAll();
                 //.and().authorizeRequests().antMatchers("/oauth/*").authenticated()
 //                .and().addFilterBefore(oauth2ClientAuthenticationProcessingFilter, BasicAuthenticationFilter.class);
+//        http.authorizeRequests()
+//                .antMatchers("/oauth/**","/login/**", "/logout").permitAll()
+//                .anyRequest().authenticated()// 其他地址的访问均需验证权限
+//                .and().httpBasic() // basic验证
+//                .and()
+//                .formLogin()
+//                .loginPage("/login")
+//                .and()
+//                .logout().logoutSuccessUrl("/");
     }
 
     /**
