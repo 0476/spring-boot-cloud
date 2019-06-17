@@ -23,7 +23,7 @@ import java.util.Locale;
 @Configuration
 @ComponentScan
 @EnableAutoConfiguration
-public class I18nConfig extends WebMvcConfigurationSupport {
+public class I18nConfig {
     @Bean
     public LocaleResolver localeResolver() {
         CookieLocaleResolver slr = new CookieLocaleResolver();
@@ -38,11 +38,6 @@ public class I18nConfig extends WebMvcConfigurationSupport {
         // 参数名
         lci.setParamName("lang");
         return lci;
-    }
-
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(localeChangeInterceptor());
     }
 
 }

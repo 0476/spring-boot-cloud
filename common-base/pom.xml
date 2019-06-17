@@ -12,6 +12,12 @@
 
     <dependencies>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <optional>true</optional>
+        </dependency>
+
         <dependency><!--webjars版本定位器 用于省略版本号-->
             <groupId>org.webjars</groupId>
             <artifactId>webjars-locator-core</artifactId>
