@@ -2,14 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>登录</title>
+<#import "spring.ftl" as spring />
+<title><@spring.message "login.title"/></title>
 <link href="${staticPath!''}/css/login.css" type="text/css" rel="stylesheet" media="screen"/>
 <script type="text/javascript" src="${publicPath!''}/js/jquery-1.8.3.min.js"></script>
-
 <!--[if IE 6]>
 <script src="${publicPath!''}/js/png_ie6.js" type="text/javascript"></script>
     <script type="text/javascript">
-        DD_belatedPNG.fix('div, ul, img, li, input, a');
+        //DD_belatedPNG.fix('div, ul, img, li, input, a');
     </script>
 <![endif]--> 
 </head>
@@ -28,11 +28,11 @@
     <div class="right">
     <!--<p><img src="${staticPath!''}/images/logtl.jpg"></p>-->
     <div class="logcont">
-        <form action="${ctx!''}/login" method="post">
-            <p class="user"><input name="username" type="text" placeholder="请输入用户名" class="ltxt" value="yoyo"></p>
-            <p class="psd"><input name="password" type="password" placeholder="******" class="ltxt" value="ls#135135"></p>
-            <p><input name="" type="checkbox" value=""> 自动登录 <a href="" class="forget">忘记密码?</a></p>
-            <p><input name="" type="submit" class="lbtn" value="登录"></p>
+        <form action="${ctx!'null'}/login" method="post">
+            <p class="user"><input name="username" type="text" placeholder="<@spring.message "login.username.placeholder"/>" class="ltxt" value="yoyo"></p>
+            <p class="psd"><input name="password" type="password" placeholder="<@spring.message "login.password.placeholder"/>" class="ltxt" value="ls#135135"></p>
+            <p><input id="remenberMe" name="" type="checkbox" value=""> <label for="remenberMe"><@spring.message "login.remenberMe"/></label> <a href="" class="forget"><@spring.message "login.forget.password"/></a></p>
+            <p><input name="" type="submit" class="lbtn" value="<@spring.message "login.submit"/>"></p>
         </form>
     </div>
     </div>
