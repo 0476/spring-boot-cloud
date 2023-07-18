@@ -34,7 +34,7 @@
         <docker.plugin.version>0.4.13</docker.plugin.version>
         <docker.image.prefix>spring-boot-cloud</docker.image.prefix>
         <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
-        <spring-boot-admin.version>1.5.0</spring-boot-admin.version>
+        <spring-boot-admin.version>3.1.2</spring-boot-admin.version>
     </properties>
 
     <dependencies>
